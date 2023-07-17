@@ -19,13 +19,14 @@ int[] GetBinArray(int size)
     return result;
 }
 
-bool ParityCheck(int number)
+int ParityCheck(int[] arrayy)
 {
-if (number > 0)
+int counter = 0;
+for (int i=0; i < arrayy.Length ; i++)
     {
-        return true;
+        if (arrayy[i] > 0 ) counter++;
     }
-    return false;
+return counter;
 }
 
 int m = ReadInt("Введите количество чисел");
@@ -33,9 +34,4 @@ Console.WriteLine($"Введите {m} чисел");
 int[] array = GetBinArray(m);
 Console.Write($"[{String.Join(", ", array)}]");
 Console.WriteLine();
-int counter = 0;
-for (int i=0; i < m ; i++)
-    {
-        if (ParityCheck(array[i])) counter++;
-    }
-Console.WriteLine($"Количество чисел больших 0 равно {counter}");
+Console.WriteLine($"Количество чисел больших 0 равно {ParityCheck(array)}");
